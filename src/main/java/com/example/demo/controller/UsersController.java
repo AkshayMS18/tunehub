@@ -1,13 +1,22 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
+//import com.example.demo.entity.LoginData;
+import com.example.demo.entity.Song;
 import com.example.demo.entity.Users;
+import com.example.demo.service.SongService;
 import com.example.demo.service.UsersService;
 
 import jakarta.servlet.http.HttpSession;
@@ -31,10 +40,12 @@ public class UsersController {
 		}
 		return "home";
 	}
-	
+	@Autowired
+	SongService songService;
 	@PostMapping("/validate")
-	public String validate(@RequestParam("email")String email,@RequestParam("password")String password, HttpSession session)
+	public String validate(@RequestParam("email")String email,@RequestParam("password")String password, HttpSession session,Model model)
 	{
+		
 		if(service.validateUser(email, password)==true)
 		{
 			String role = service.getRole(email);
@@ -46,6 +57,11 @@ public class UsersController {
 			}
 			else
 			{
+				Users user = service.getUser(email);
+				boolean userStatus = user.isPremium();
+				List<Song> songsList = songService.fetchAllSongs();
+			    model.addAttribute("songs", songsList);
+				model.addAttribute("isPremium", userStatus);
 				return "customer";
 			}
 			
