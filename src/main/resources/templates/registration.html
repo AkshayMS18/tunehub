@@ -3,32 +3,46 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Registration module</title>
+		<link rel="stylesheet" th:href="@{/css/registration.css}">
 	</head>
 	<body>
+		<div class="main">
+		<div class="reg">
 		<h1>User Registration: </h1>
-		<form action="register" method="post">
+		<form id="reg" action="register" method="post">
 			<label>Username : </label>
-			<input type="text" name="username">
+			<br>
+			<input type="text" name="username" id="name" placeholder="Enter your name">
 			<br/>
+			<br>
 			<label>Email : </label>
-			<input type="email" name="email">
+			<br>
+			<input type="email" name="email" id="name" placeholder="Enter your email">
 			<br/>
+			<br>
 			<label>Password : </label>
-			<input type="password" name="password">
+			<br>
+			<input type="password" name="password" id="name" placeholder="Enter your password">
 			<br/>
+			<br>
 			<label>gender : </label>
 			M<input type="radio" name="gender" value="male">
 			F<input type="radio" name="gender" value="female">
 			O<input type="radio" name="gender" value="other">
 			<br/>
+			<br>
 			<label>role : </label>
 			Admin<input type="radio" name="role" value="admin">
 			Customer<input type="radio" name="role" value="customer">
 			<br/>
+			<br>
 			<label>Address : </label>
-			<textarea name="address"></textarea>
+			<textarea name="address" placeholder="Enter your address"></textarea>
 			<br/>
-			<input type="submit"/>
+			<br>
+			<input id="submit" type="submit"/>
+			</div>
+			</div>
 		</form>
 	</body>
 </html>

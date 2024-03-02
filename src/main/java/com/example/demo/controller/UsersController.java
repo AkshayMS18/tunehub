@@ -38,7 +38,7 @@ public class UsersController {
 		{
 			System.out.println("user already exists");
 		}
-		return "home";
+		return "index";
 	}
 	@Autowired
 	SongService songService;

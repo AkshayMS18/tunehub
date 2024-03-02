@@ -35,12 +35,12 @@ public class PaymentController {
 		Users u = service.getUser(mail);
 		u.setPremium(true);
 		service.updateUser(u);
-		return "customerHome";
+		return "customer";
 	}
 	
 	@GetMapping("/payment-failure")
 	public String paymentFailure() {
-		return "customerHome";
+		return "customer";
 	}
 
 	@SuppressWarnings("finally")

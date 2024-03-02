@@ -1,0 +1,39 @@
+*{
+	margin: 0 auto;
+	padding: 4px;
+	align-items: center;
+}
+
+body{
+	background: url(images44.webp);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+h1{
+	text-align: center;
+	color: #ffff;
+	font-size: 50px;
+}
+
+p{
+	text-align: center;
+	color: #ffff;
+	font-size: 35px;
+}
+
+button.buy-button{
+	width: 20%;
+	height: 45px;
+	background: #fff;
+	border: none;
+	outline: none;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+	cursor: pointer;
+	font-size: 16px;
+	color: #333;
+	font-weight: 600;
+	display: block;
+}
+

@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<link rel="stylesheet" th:href="@{/css/displayPlaylists.css}">
 		<style type="text/css">
 			iframe{
 				height:200px;
@@ -11,6 +12,9 @@
 		</style>
 	</head>
 	<body>
+		<div class="filter">
+			
+		</div>
 		<table border>
 			<thread>
 				<tr>
@@ -25,6 +29,7 @@
 					<ul>
 						<li th:each="song : ${plist.songs}" >
 							<span th:text="${song.name}"></span>
+							<br>
 							<audio controls>
 		        				<source th:src="${song.link}" type="audio/mpeg">
 		    				</audio>
